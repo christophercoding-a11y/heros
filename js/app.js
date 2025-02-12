@@ -559,7 +559,54 @@ const buildCards =(obj)=> {
 }
 
 // buildCards(heroes[0])
+// Abstract forEach loop
+// heroes.forEach(hero => buildCards(hero))
+
+const loadCards = (arr)=> {
+    arr.forEach(item => buildCards(item))
+}
+
+const loadBtn = document.getElementById('loadBtn')
+
+loadBtn.addEventListener('click', (e)=> {
+    e.preventDefault()
+    row.innerHTML = ''
+    const filter = document.getElementById('filter').value
+    
+
+    let cards = heroes.filter(hero => Object.values(hero).includes(filter))
+    
+
+    // console.log(cards)
+
+    loadCards(cards)
+})
+
+/**
+ * arr.filter() => return a copy after an original array has been filtered through
+ */
+
+// let arr1 = [1, 2, 4, 7, 8, 9]
+
+// let arr2 = arr1.filter(num => num % 2 == 0)
+
+// console.log(arr2)
 
 
 
-heroes.forEach(hero => buildCards(hero))
+
+
+// let dcHeroes = []
+
+// for (let hero of heroes) {
+//     if (hero.franchise == 'dc') {
+//         dcHeroes = [...dcHeroes, hero]
+//     }
+// }
+
+let arr1 = [1, 3, 5, 2, 'hello']
+
+
+
+
+
